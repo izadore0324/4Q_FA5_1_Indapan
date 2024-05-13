@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FA 5 Part 1</title>
+</head>
+<body>
+    <script>
+let userInput;
+do {
+  userInput = prompt("Please enter a number:");
+} while (!isNum(userInput));
+
+const number = parseInt(userInput);
+
+document.writeln("Number inputted: ", number + "<br>");
+
+function isNum(value) {
+  return !isNaN(parseFloat(value)) && isFinite(value);
+}
+
+function generateRec(num) {
+  for (let i = num; i >= 1; i--) {
+    let row = '';
+    for (let j = num; j >= 1; j--) {
+      row += i + (j > 1 ? ' ' : '');
+      document.writeln("<br>");
+    }
+    document.writeln(row);
+  }
+}
+
+function generateTri(num) {
+  for (let k = num; k >= 1; k--) {
+    let row = '';
+    for (let l = k; l >= 1;) {
+      row += l + (l > 1 ? ' ' : '');
+      document.writeln("<br>");
+    }
+    document.writeln(row);
+  }
+}
+
+if (number % 2 === 0) {
+  generateTri(number);
+} else {
+  generateRec(number);
+}
+
+    </script>
+</body>
+</html>
